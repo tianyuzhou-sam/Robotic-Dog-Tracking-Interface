@@ -1,4 +1,4 @@
 [submodule "externals/unitree_legged_sdk"]
 	path = externals/unitree_legged_sdk
 	url = https://github.com/unitreerobotics/unitree_legged_sdk.git
-	branch = master
+	branch = go1
