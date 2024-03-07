@@ -42,20 +42,21 @@ Connection
 
 First connect to the robot's wifi. Then
 ```
-$ ssh <USERNAME>@192.168.1.12
+$ ssh <USERNAME>@192.168.12.1
 ```
 Enter the password and you are now in the robot's system.
 
 **2. To run on network device, a bridge is needed:**
 On the robot's system:
 ```
-$ sudo sysctl -p
-$ sudo iptables -F
-$ sudo iptables -t nat -F
-$ sudo iptables -t nat -A POSTROUTING -o wlan1 -j MASQUERADE
-$ sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-$ sudo iptables -A FORWARD -i wlan1 -o eth0 -j ACCEPT
-$ sudo iptables -A FORWARD -i eth0 -o wlan1 -j ACCEPT
+sudo sysctl -p
+sudo iptables -F
+sudo iptables -t nat -F
+sudo iptables -t nat -A POSTROUTING -o wlan1 -j MASQUERADE
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+sudo iptables -A FORWARD -i wlan1 -o eth0 -j ACCEPT
+sudo iptables -A FORWARD -i eth0 -o wlan1 -j ACCEPT
+
 ```
 On network device:
 ```
