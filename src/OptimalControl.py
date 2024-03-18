@@ -35,7 +35,7 @@ class OptimalControl:
 
         self.lin_vel_x_lb = 0
         self.lin_vel_x_ub = 0.25
-        self.lin_vel_y_lb = 0
+        self.lin_vel_y_lb = -0.1
         self.lin_vel_y_ub = 0.1
         self.ang_vel_lb = -1.57
         self.ang_vel_ub = 1.57
