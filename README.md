@@ -4,7 +4,6 @@ This GitHub repo is a tutorial and a waypoint/trajectory tracking interface for 
 * Robotic-Dog-Tracking-Interface is able to obtain state estimation from motion capture systems [Qualisys](https://www.qualisys.com/), and you're welcome to write functions for your own motion capture system. The purpose of this repository is that prople can foucs on motion planning / path planning / trajectory planning and **Robotic-Dog--Tracking-Interface** can take over actual waypoint/trajectory tracking as long as your planner outputs waypoints/trajectory as csv files in a specific directory.
 
 **Future updates**
-* Waypoint tracking
 * Direct low-level-control examples
 * Trajectory tracking
 
@@ -70,5 +69,9 @@ To run an walking example:
 ```
 $ cd build
 $ ./example_walk
+```
+To run NMPC waypoint tracking:
+```
+$ python3 experiment/run_waypoints.py
 ```
 
