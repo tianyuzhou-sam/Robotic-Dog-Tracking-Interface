@@ -25,12 +25,14 @@ To download and build this repo,
 $ git clone https://github.com/tianyuzhou-sam/Robotic-Dog-Tracking-Interface.git
 $ cd <MAIN_DIRECTORY>
 $ git submodule update --init --recursive
+$ cd <MAIN_DIRECTORY>
 $ mkdir build
 $ cd build
 $ cmake ..
 $ make
 ```
-If you want to build the python wrapper, then replace the cmake line with:
+
+If you want to build the python wrapper, then replace the cmake line `cmake ..` with:
 ```
 $ cmake -DPYTHON_BUILD=TRUE ..
 ```
@@ -39,14 +41,18 @@ Connection
 ==========
 **1. To run on the robot's system (raspberry pi):** 
 
-First connect to the robot's wifi. Then
+First connect your computer to the robot's wifi `Unitree_Go429210A` (5 GHz only) with password `00000000`. Then open a new terminal
 ```
 $ ssh <USERNAME>@192.168.12.1
 ```
-Enter the password and you are now in the robot's system.
+```
+$ ssh pi@192.168.12.1
+```
+Enter the password and then you are in the robot's system. The default password is `123`.
+
 
 **2. To run on network device, a bridge is needed:**
-On the robot's system:
+On the robot's system (in the same terminal that you just ssh-ed):
 ```
 sudo sysctl -p
 sudo iptables -F
@@ -57,7 +63,7 @@ sudo iptables -A FORWARD -i wlan1 -o eth0 -j ACCEPT
 sudo iptables -A FORWARD -i eth0 -o wlan1 -j ACCEPT
 
 ```
-On network device:
+On network device (Open a new terminal in your computer):
 ```
 $ sudo route add default gw 192.168.12.1
 ```
@@ -65,13 +71,18 @@ $ sudo route add default gw 192.168.12.1
 
 Example
 =======
-To run an walking example:
+
+The same computer needs to connect with the motion capture system with Ethernet cables.
+
+To run an open-loop walking example:
 ```
 $ cd build
 $ ./example_walk
 ```
-To run NMPC waypoint tracking:
+
+
+To run NMPC waypoint tracking with the motion capture system:
+
 ```
 $ python3 experiment/run_waypoints.py
 ```
-
